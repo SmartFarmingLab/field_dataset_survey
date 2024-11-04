@@ -12,7 +12,7 @@ This repository contains a curated list of high-quality RGB image datasets for c
 
 We provide access information to 45 carefully selected datasets that meet the following criteria:
 - Domain coherence: Natural field scenes (plants on fields or pastures taken under natural light)
-- High-quality ground truth data with substantial annotations
+- High-quality ground truth data with substantial annotations 
 - Consistent image quality (resolution, minimal motion blur, adequate lighting)
 - Original datasets (no web-scraped or reused images)
 
