@@ -1,6 +1,10 @@
 # Agricultural Computer Vision Datasets Survey
 
-![Agricultural plants](plants.png)
+<p align="center">
+  <img src="plants.png" alt="Agricultural plants">
+  <br>
+  <em>Example images from included datasets showing various agricultural scenes and tasks. From left to right: LucasVision [Yo23], GlobalWheatHeadDetection [Da21], PaddyDoctor [Pe23], and CottonWeedID15 [Ch23].</em>
+</p>
 
 This repository contains a curated list of high-quality RGB image datasets for computer vision in agriculture, specifically focused on natural field scenes. The datasets were collected as part of our research paper "A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes" (Heider et al., 2025).
 
