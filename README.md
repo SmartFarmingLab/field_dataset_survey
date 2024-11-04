@@ -1,4 +1,28 @@
-Coming soon 
+# Agricultural Computer Vision Datasets Survey
+
+![Agricultural plants](plants.png)
+
+This repository contains a curated list of high-quality RGB image datasets for computer vision in agriculture, specifically focused on natural field scenes. The datasets were collected as part of our research paper "A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes" (Heider et al., 2025).
+
+## Overview
+
+We provide access information to 45 carefully selected datasets that meet the following criteria:
+- Domain coherence: Natural field scenes (plants on fields or pastures taken under natural light)
+- High-quality ground truth data with substantial annotations
+- Consistent image quality (resolution, minimal motion blur, adequate lighting)
+- Original datasets (no web-scraped or reused images)
+
+The datasets cover various agricultural computer vision tasks:
+- Weed detection and classification (29 datasets)
+- Disease and pest detection (9 datasets)
+- Seedling and crop detection (6 datasets)
+- Plant growth stage detection
+- Phenotyping
+- Various detection and counting tasks
+
+## Dataset Collection
+
+
 | Label | Year | Author | Plant (English) | Plant (Latin) | Plant / Leaf / Fruit | Task | Annotation | Public Comment | Number of Images | Paper-URL | Dataset-URL |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | AmsinckiaInChickpeas [We24b] | 2023 | Plant, Brad | Crops: Chickpeas; Weeds: Ansinckia | Crops: Cicer arietinum; Weeds: Ansinckia | Whole plant | Weed Detection | Bounding Boxes |  | 124 | https://weed-ai.sydney.edu.au/datasets/21675efe-9d25-4096-be76-3a541475efd4 | https://weed-ai.sydney.edu.au/datasets/21675efe-9d25-4096-be76-3a541475efd4 |
@@ -46,3 +70,55 @@ Coming soon
 | WildCarrotFlowersInCanola [We24h] | 2021 | Leon, Lorenzo | Crops: Canola; Weeds: Wild carrot; | Crops: Brassica napus; Weeds: Daucus carota; | Whole plant | Weed Detection | Bounding Boxes |  | 52 | https://weed-ai.sydney.edu.au/datasets/c4a80379-afda-4972-b274-82a544addd0d | https://weed-ai.sydney.edu.au/datasets/c4a80379-afda-4972-b274-82a544addd0d |
 | WildRadishInWheat [We24i] | 2021 | Coleman, Guy | Crops: Wheat; Weeds: Wild radish; | Crops: Triticum aestivum; Weeds: Raphanus raphanistrum; | Whole plant | Weed Detection | Bounding Boxes |  | 41 | https://weed-ai.sydney.edu.au/datasets/09af32ad-2e9e-4f7c-ae08-55374824ee15 | https://weed-ai.sydney.edu.au/datasets/09af32ad-2e9e-4f7c-ae08-55374824ee15 |
 | YOLOWeeds [Da23] | 2023 | Dang, Fengying; Chen, Dong; Lu, Yuzhen; Li, Zhaojian | Weeds: Waterhemp, Morningglory, Purslane, Spotted Spurge, Carpetweed, Ragweed, Eclipta, Prickly Sida, Palmer Amaranth, Sicklepod, Goosegrass, Cutleaf Groundcherry; | Weeds: Amaranthus tuberculatus, Ipomoea spp., Portulaca oleracea, Euphorbia maculata, Mollugo verticillata, Ambrosia artemisiifolia, Eclipta prostrata, Sida spinosa, Amaranthus palmeri, Senna obtusifolia, Eleusine indica, Physalis angulata; | Leaf | Weed Detection | Bounding Boxes |  | 5648 | https://www.sciencedirect.com/science/article/pii/S0168169923000431 | https://zenodo.org/records/7535814 ,  https://weed-ai.sydney.edu.au/datasets/2c14915b-0827-4b65-9908-d2a6df0d48f3  |
+
+
+## Categories
+
+### Plant Disease and Pest Identification
+Datasets focusing on identifying diseases and pests in various crops, including corn, rice, soybeans, and more.
+
+### Weed Detection and Classification
+Organized by crop type:
+- Cotton
+- Wheat
+- Maize
+- Chickpeas
+- Other crops
+- Weeds on grass/pasture areas
+
+### Seedling and Plant Classification
+Includes datasets for both seedling identification and mature plant classification.
+
+### Crop Segmentation and Detection
+Datasets for various detection tasks including:
+- Semantic segmentation
+- Growth stage estimation
+- Plant counting
+- Crop detection
+
+## Contributing
+
+We welcome contributions to this dataset collection! If you have a dataset that meets our criteria, please submit a pull request with the following information:
+- Dataset name and brief description
+- Task category
+- Image count and resolution
+- Annotation type and count
+- Access information
+- Citation details
+
+## Citation
+
+If you use this collection in your research, please cite our paper:
+```
+Heider, N., Gunreben, L., Zürner, S., & Schieck, M. (2025). A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes. Lecture Notes in Informatics (LNI), Gesellschaft für Informatik, Bonn.
+```
+
+Full citations for individual datasets can be found in the bibliography section of our paper.
+
+## License
+
+This dataset collection is provided for research purposes. Please refer to the individual dataset licenses for usage terms and conditions.
+
+## Acknowledgements
+
+This work and the Rubin Feldschwarm® ÖkoSystem project are funded by the German Federal Ministry of Education and Research (BMBF) (grant no. 03RU2U051F, 03RU2U053C).
