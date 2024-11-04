@@ -109,8 +109,16 @@ We welcome contributions to this dataset collection! If you have a dataset that 
 ## Citation
 
 If you use this collection in your research, please cite our paper:
-```
-Heider, N., Gunreben, L., Zürner, S., & Schieck, M. (2025). A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes. Lecture Notes in Informatics (LNI), Gesellschaft für Informatik, Bonn.
+
+```bibtex
+@article{heider2025survey,
+  title={A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes},
+  author={Heider, Nico and Gunreben, Lorenz and Z{\"u}rner, Sebastian and Schieck, Martin},
+  journal={Lecture Notes in Informatics (LNI)},
+  publisher={Gesellschaft f{\"u}r Informatik},
+  address={Bonn},
+  year={2025}
+}
 ```
 
 Full citations for individual datasets can be found in the bibliography section of our paper.
