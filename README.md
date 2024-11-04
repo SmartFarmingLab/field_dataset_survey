@@ -20,7 +20,7 @@ If you use this collection in your research, please cite our paper:
   author={Heider, Nico and Gunreben, Lorenz and Z{\"u}rner, Sebastian and Schieck, Martin},
   journal={t.b.d.},
   publisher={t.b.d.},
-  address=[t.b.d.},
+  address={t.b.d.},
   year={2025}
 }
 ```
