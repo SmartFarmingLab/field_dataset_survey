@@ -20,6 +20,37 @@ The datasets cover various agricultural computer vision tasks:
 - Phenotyping
 - Various detection and counting tasks
 
+## Contributing
+
+We welcome contributions to this dataset collection! If you have a dataset that meets our criteria, please submit a pull request with the following information:
+- Dataset name and brief description
+- Task category
+- Image count and resolution
+- Annotation type and count
+- Access information
+- Citation details
+
+## Citation
+
+If you use this collection in your research, please cite our paper:
+
+```bibtex
+@article{heider2025survey,
+  title={A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes},
+  author={Heider, Nico and Gunreben, Lorenz and Z{\"u}rner, Sebastian and Schieck, Martin},
+  journal={Lecture Notes in Informatics (LNI)},
+  publisher={Gesellschaft f{\"u}r Informatik},
+  address={Bonn},
+  year={2025}
+}
+```
+
+Full citations for individual datasets can be found in the bibliography section of our paper.
+
+## License
+
+This dataset collection is provided for research purposes. Please refer to the individual dataset licenses for usage terms and conditions.
+
 ## Dataset Collection
 
 | Label | Year | Author | Plant (English) | Plant (Latin) | Plant / Leaf / Fruit | Task | Annotation | Public Comment | Number of Images | Paper-URL | Dataset-URL |
@@ -97,36 +128,7 @@ Datasets for various detection tasks including:
 - Plant counting
 - Crop detection
 
-## Contributing
 
-We welcome contributions to this dataset collection! If you have a dataset that meets our criteria, please submit a pull request with the following information:
-- Dataset name and brief description
-- Task category
-- Image count and resolution
-- Annotation type and count
-- Access information
-- Citation details
-
-## Citation
-
-If you use this collection in your research, please cite our paper:
-
-```bibtex
-@article{heider2025survey,
-  title={A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes},
-  author={Heider, Nico and Gunreben, Lorenz and Z{\"u}rner, Sebastian and Schieck, Martin},
-  journal={Lecture Notes in Informatics (LNI)},
-  publisher={Gesellschaft f{\"u}r Informatik},
-  address={Bonn},
-  year={2025}
-}
-```
-
-Full citations for individual datasets can be found in the bibliography section of our paper.
-
-## License
-
-This dataset collection is provided for research purposes. Please refer to the individual dataset licenses for usage terms and conditions.
 
 ## Acknowledgements
 
