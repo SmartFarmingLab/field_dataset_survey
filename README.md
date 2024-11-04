@@ -1,4 +1,4 @@
-# Agricultural Computer Vision Datasets Survey
+# Agricultural Computer Vision Dataset Survey
 
 <p align="center">
   <img src="plants.png" alt="Agricultural plants">
