@@ -18,9 +18,9 @@ If you use this collection in your research, please cite our paper:
 @article{heider2025survey,
   title={A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes},
   author={Heider, Nico and Gunreben, Lorenz and Z{\"u}rner, Sebastian and Schieck, Martin},
-  journal={Lecture Notes in Informatics (LNI)},
-  publisher={Gesellschaft f{\"u}r Informatik},
-  address={Bonn},
+  journal={t.b.d.},
+  publisher={t.b.d.},
+  address=[t.b.d.},
   year={2025}
 }
 ```
