@@ -51,10 +51,6 @@ If you use this collection in your research, please cite our paper:
 
 Full citations for individual datasets can be found in the bibliography section of our paper.
 
-## License
-
-This dataset collection is provided for research purposes. Please refer to the individual dataset licenses for usage terms and conditions.
-
 ## Dataset Collection
 
 | Label | Year | Author | Plant (English) | Plant (Latin) | Plant / Leaf / Fruit | Task | Annotation | Public Comment | Number of Images | Paper-URL | Dataset-URL |
@@ -137,3 +133,9 @@ Datasets for various detection tasks including:
 ## Acknowledgements
 
 This work and the Rubin Feldschwarm® ÖkoSystem project are funded by the German Federal Ministry of Education and Research (BMBF) (grant no. 03RU2U051F, 03RU2U053C).
+
+
+## License
+
+This dataset collection is provided for research purposes. Please refer to the individual dataset licenses for usage terms and conditions.
+
