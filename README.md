@@ -104,32 +104,6 @@ Full citations for individual datasets can be found in the bibliography section 
 
 
 
-## Categories
-
-### Plant Disease and Pest Identification
-Datasets focusing on identifying diseases and pests in various crops, including corn, rice, soybeans, and more.
-
-### Weed Detection and Classification
-Organized by crop type:
-- Cotton
-- Wheat
-- Maize
-- Chickpeas
-- Other crops
-- Weeds on grass/pasture areas
-
-### Seedling and Plant Classification
-Includes datasets for both seedling identification and mature plant classification.
-
-### Crop Segmentation and Detection
-Datasets for various detection tasks including:
-- Semantic segmentation
-- Growth stage estimation
-- Plant counting
-- Crop detection
-
-
-
 ## Acknowledgements
 
 This work and the Rubin Feldschwarm® ÖkoSystem project are funded by the German Federal Ministry of Education and Research (BMBF) (grant no. 03RU2U051F, 03RU2U053C).
