@@ -25,7 +25,7 @@ If you use this collection in your research, please cite our paper:
 }
 ```
 
-Full citations for individual datasets can be found in the bibliography section of our paper.
+Full citations for individual datasets can be found as bibtex bibliography "argiculture_dataset_survey.bib" in the repository and in the bibliography section of our paper.
 
 
 ## Overview
