@@ -29,6 +29,34 @@
       <div class="container has-text-centered">
         <h1 class="title is-1">Agricultural Computer Vision Dataset Survey</h1>
         <h2 class="subtitle is-4">A curated catalogue of high-quality RGB image datasets for natural field scenes.</h2>
+
+        <!-- Action Buttons -->
+        <div class="buttons is-centered">
+          <a href="https://github.com/SmartFarmingLab/field_dataset_survey" class="button is-dark is-rounded">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            <span>GitHub</span>
+          </a>
+          <a href="./static/files/dataset_table.csv" class="button is-dark is-rounded">
+            <span class="icon">
+              <i class="fas fa-file-csv"></i>
+            </span>
+            <span>CSV</span>
+          </a>
+          <a class="button is-dark is-rounded" disabled>
+            <span class="icon">
+              <i class="fas fa-file-pdf"></i>
+            </span>
+            <span>Paper</span>
+          </a>
+          <a class="button is-dark is-rounded" disabled>
+            <span class="icon">
+              <i class="ai ai-arxiv"></i>
+            </span>
+            <span>arXiv</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -50,44 +78,1005 @@
     </div>
   </section>
 
+  <style>
+    /* Style for table headers */
+    th {
+      cursor: pointer;
+      position: relative;
+    }
+  
+    th:hover {
+      background-color: #f5f5f5; /* Light gray on hover */
+      color: #3273dc; /* Bulma's primary color */
+    }
+  
+    /* Style for sort icons */
+    .sort-icon {
+      margin-left: 8px;
+      font-size: 12px;
+      display: inline-block;
+    }
+  </style>
   <!-- Dataset Table Section -->
   <section class="section">
     <div class="container">
       <h2 class="title is-3 has-text-centered">Dataset Collection</h2>
       <div class="table-container">
-        <table class="table is-striped is-hoverable is-fullwidth">
+        <table class="table is-striped is-hoverable is-fullwidth" id="datasetTable">
           <thead>
             <tr>
-              <th>Label</th>
-              <th>Year</th>
-              <th>Author</th>
-              <th>Plant (English)</th>
-              <th>Task</th>
-              <th>Annotation</th>
-              <th>Images</th>
-              <th>Paper</th>
-              <th>Dataset</th>
+              <th onclick="sortTable(0, this)">Label<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(1, this)">Year<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(2, this)">Author<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(3, this)">Plant (English)<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(4, this)">Plant (Latin)<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(5, this)">Plant/Leaf/Fruit<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(6, this)">Task<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(7, this)">Annotation<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(8, this)">Number of Images<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(9, this)">Paper URL<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(10, this)">Dataset URL<span class="sort-icon">↕</span></th>
             </tr>
           </thead>
           <tbody>
-            <!-- Replace with dynamic rows -->
             <tr>
-              <td>AmsinckiaInChickpeas [We24b]</td>
-              <td>2023</td>
-              <td>Plant, Brad</td>
-              <td>Chickpeas, Ansinckia</td>
-              <td>Weed Detection</td>
-              <td>Bounding Boxes</td>
-              <td>124</td>
-              <td><a href="#">Link</a></td>
-              <td><a href="#">Dataset</a></td>
+                <td>AmsinckiaInChickpeas [We24b]</td>
+                <td>2023</td>
+                <td>Plant, Brad</td>
+                <td>Crops: Chickpeas; Weeds: Ansinckia</td>
+                <td>Crops: Cicer arietinum; Weeds: Ansinckia</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>124</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/21675efe-9d25-4096-be76-3a541475efd4</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/21675efe-9d25-4096-be76-3a541475efd4</td>
             </tr>
-            <!-- More rows go here -->
+            <tr>
+                <td>AnnualRyegrassAndTurnipweedInWheat [We24c]</td>
+                <td>2021</td>
+                <td>Coleman, Guy</td>
+                <td>Crops: Wheat; Weeds: Annual Ryegrass, Turnipweed;</td>
+                <td>Crops: Triticum aestivum; Weeds: Lolium rigidum, Rapistrum rugosum;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>27</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/5158bbe5-6030-48ad-8214-b68ff8118c22</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/5158bbe5-6030-48ad-8214-b68ff8118c22</td>
+            </tr>
+            <tr>
+                <td>ASDID [BSH22]</td>
+                <td>2022</td>
+                <td>Bevers, Noah; Sikora, Edward J.; Hardy, Nate B.</td>
+                <td>Crops: Soybean;</td>
+                <td>Crops: Glycine max;</td>
+                <td>Leaf</td>
+                <td>Disease Detection</td>
+                <td>Image Classes</td>
+                <td>Disease types and deficiencies like bacterial blight, Cercospora leaf blight, frogeye leaf spot, downy mildew, soybean rust, target spot, potassium deficiency, and healthy plants</td>
+                <td>9.981</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S0168169922007578</td>
+                <td>https://datadryad.org/stash/dataset/doi:10.5061/dryad.41ns1rnj3</td>
+            </tr>
+            <tr>
+                <td>BeanLeafDataset [Ma20]</td>
+                <td>2020</td>
+                <td>Makerere AI Lab</td>
+                <td>Crops: Bean;</td>
+                <td>Crops: Phaseolus;</td>
+                <td>Leaf</td>
+                <td>Disease Identification</td>
+                <td>Image Classes</td>
+                <td>Angular Leaf Spot and Bean Rust</td>
+                <td>1200+</td>
+                <td>https://github.com/AI-Lab-Makerere/ibean</td>
+                <td>https://huggingface.co/datasets/AI-Lab-Makerere/beans</td>
+            </tr>
+            <tr>
+                <td>BroadleafWeedsInCommonCouch [We24d]</td>
+                <td>2022</td>
+                <td>Coleman, Guy</td>
+                <td>Crops: Common Couch; Weeds: Broadleaf Weeds;</td>
+                <td>Crops: Elymus repens.; Weeds: Conyza spp.;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>78</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/8b14a44b-bc7f-4b92-9bc0-224a2a2c4e22</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/8b14a44b-bc7f-4b92-9bc0-224a2a2c4e22</td>
+            </tr>
+            <tr>
+                <td>BrownlowHillFireweed [We24k]</td>
+                <td>2022</td>
+                <td>Coleman, Guy</td>
+                <td>Crops: Pasture; Weeds: Fireweed;</td>
+                <td>Crops: Various Poaceae; Weeds: Senecio madagascariensis;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>20</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/24b34712-c31b-4efc-9790-406d1f14d840</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/24b34712-c31b-4efc-9790-406d1f14d840</td>
+            </tr>
+            <tr>
+                <td>CobbityWheat [We24e]</td>
+                <td>2021</td>
+                <td>Coleman, Guy</td>
+                <td>Crops: Wheat; Weeds: Wild radish, Turnipweed;</td>
+                <td>Crops: Triticum aestivum; Weeds: Raphanus Raphanistrum, Rapistrum rugosum;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>39</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/3c363da3-6274-45e4-a0ce-b307cb0f89cc</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/3c363da3-6274-45e4-a0ce-b307cb0f89cc</td>
+            </tr>
+            <tr>
+                <td>CornLeafInfection [Ac20]</td>
+                <td>2020</td>
+                <td>Acharya, Ramkrishna.</td>
+                <td>Crops: Maize;</td>
+                <td>Crops: Zea mays;</td>
+                <td>Leaf</td>
+                <td>Disease Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>2.225</td>
+                <td>https://www.kaggle.com/datasets/qramkrishna/corn-leaf-infection-dataset</td>
+                <td>https://www.kaggle.com/datasets/qramkrishna/corn-leaf-infection-dataset</td>
+            </tr>
+            <tr>
+                <td>CottonWeedDet3 [RLW23]</td>
+                <td>2023</td>
+                <td>Rahman, Abdur; Lu, Yuzhen; Wang, Haifeng</td>
+                <td>Crops: Cotton; Weeds: Various;</td>
+                <td>Crops: Gossypium; Weeds: Various;</td>
+                <td>Leaf</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>848</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S2772375522000910</td>
+                <td>https://www.kaggle.com/datasets/yuzhenlu/cottonweeddet3</td>
+            </tr>
+            <tr>
+                <td>CottonWeedID15 [Ch23]</td>
+                <td>2023</td>
+                <td>Chen et al.</td>
+                <td>Crops: Cotton; Weeds: Morningglory, Carpetweed, Palmer amaranth, Waterhemp, Purslane, Nutsedge, Eclipta, Spotted spurge, Sicklepod, Goosegrass, Prickly sida, Ragweed, Crabgrass, Swinecress, Spurred anoda;</td>
+                <td>Crops: Gossypium; Weeds: Mollugo verticillata, Amaranthus palmeri, Amaranthus tuberculatus, Portulaca oleracea, Cyperus spp., Eclipta prostrata, Euphorbia maculata, Senna obtusifolia, Eleusine indica, Sida spinosa, Ambrosia artemisiifolia, Digitaria spp., Coronopus didymus, Anoda cristata;</td>
+                <td>Leaf</td>
+                <td>Weed Identification</td>
+                <td>Image Classes</td>
+                <td></td>
+                <td>5.187</td>
+                <td>https://www.sciencedirect.com/science/article/abs/pii/S0168169922004082?via%3Dihub</td>
+                <td>https://www.kaggle.com/datasets/yuzhenlu/cottonweedid15</td>
+            </tr>
+            <tr>
+                <td>DeepSeedling [Ji19]</td>
+                <td>2019</td>
+                <td>Jian et al.</td>
+                <td>Crops: Cotton; Weeds:  Dicotyledonous, Monocotyledonous, Various;</td>
+                <td>Crops: Gossypium hirsutum; Weeds:  Dicotyledonous, Monocotyledonous, Various;</td>
+                <td>Seedlings</td>
+                <td>Seedling Detection, Seedling Counting</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>5.610</td>
+                <td>https://doi.org/10.1186/s13007-019-0528-3</td>
+                <td>https://figshare.com/s/616956f8633c17ceae9b</td>
+            </tr>
+            <tr>
+                <td>DeepWeeds [Ol19]</td>
+                <td>2019</td>
+                <td>Olsen et al.</td>
+                <td>Weeds: Chinee apple, Snake weed, Lantana, Prickly acacia, Siam weed, Parthenium, Rubber vine, Parkinsonia;</td>
+                <td>Weeds: Ziziphus mauritiana, Stachytarpheta spp., Lantana camara, Vachellia nilotica, Chromolaena odorata, Parthenium hysterophorus, Cryptostegia grandiflora, Parkinsonia aculeata;</td>
+                <td>Leaf</td>
+                <td>Weed Detection</td>
+                <td>Image Classes</td>
+                <td></td>
+                <td>17.509</td>
+                <td>https://www.nature.com/articles/s41598-018-38343-3</td>
+                <td>https://github.com/AlexOlsen/DeepWeeds</td>
+            </tr>
+            <tr>
+                <td>DeepWeedsX [La19]</td>
+                <td>2019</td>
+                <td>Lammie et al.</td>
+                <td>Weeds: Chinee Apple, Lantana, Parkinsonia, Parthenium, Prickly Acacia, Rubber vine, Siam weed, Snakeweed;</td>
+                <td>Weeds: Ziziphus mauritiana, Lantana spp., Parkinsonia aculeata, Parthenium hysterophorus, Vachellia nilotica, Cryptostegia grandiflora, Chromolaena odorata, Stachytarpheta spp.;</td>
+                <td>Whole plant</td>
+                <td>Weed Identifictation</td>
+                <td>Image Classes</td>
+                <td>Classification into 9 Image Classes, subset of DeepWeeds with clearer labels.</td>
+                <td>17.508</td>
+                <td>https://d1wqtxts1xzle7.cloudfront.net/80500290/08693488-libre.pdf?1644369140=&amp;response-content-disposition=inline%3B+filename%3DLow_Power_and_High_Speed_Deep_FPGA_Infer.pdf&amp;Expires=1729777495&amp;Signature=g5gdizpzXTSunn3h3mJ9eld16VBMXup~baXX44~I798yRnMEhOxuk7VaP1pQ0qdgYnJKSpuly0liensxw6mW2MmGLCHv8OW6sabpALpfNJrg2mZagVhd7aZXfFXTC8GjFXxO03YiZZ62b-19Huhn4cOqKFhL9dZphp2erm2ZF2cS5D9uPsVvmeytYOQMGSNxJuBB4-I44CvzPc4vi1GnHWMG46gF0ZiAZwW4HNXtbL5HncWSSQc52J~fJ0JxrijY8BltaRk7jJPdGN91oSOleUj8pprlf8ZGfU7tDLzyvAhTI47OPpVmsAj6cFzdIvF5JuqigOtxv86HMg5~ehjOUg__&amp;Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA</td>
+                <td>https://www.kaggle.com/datasets/coreylammie/deepweedsx</td>
+            </tr>
+            <tr>
+                <td>DPA [RRG20]</td>
+                <td>2020</td>
+                <td>Riehle, Daniel; Reiser, David; Griepentrog, Hans W.</td>
+                <td>Crops: Maize, Sugar beet;</td>
+                <td>Crops: Zea mays, Beta vulgaris;</td>
+                <td>Leaf, Fruit, Whole plant</td>
+                <td>Plant Classification</td>
+                <td>Segmentation Masks</td>
+                <td></td>
+                <td>200</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S0168169919314346</td>
+                <td>https://github.com/hohenheimdr/DPA</td>
+            </tr>
+            <tr>
+                <td>EarlyCropWeed [Es20]</td>
+                <td>2020</td>
+                <td>Espejo-Garcia et al.</td>
+                <td>Crops: Tomato, Cotton; Weeds: Black nightshade, Velvetleaf;</td>
+                <td>Crops: Solanum lycopersicum, Gossypium hirsutum; Weeds: Solanum nigrum, Abutilon theophrasti;</td>
+                <td>Leaf</td>
+                <td>Weed Detection</td>
+                <td>Image Classes</td>
+                <td></td>
+                <td>504</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S0168169919319854</td>
+                <td>https://github.com/AUAgroup/early-crop-weed</td>
+            </tr>
+            <tr>
+                <td>GlobalWheatHeadDetection [Da21]</td>
+                <td>2021</td>
+                <td>David et al.</td>
+                <td>Crops: Wheat;</td>
+                <td>Crops: Triticum aestivum;</td>
+                <td>Fruit, Wheat Head</td>
+                <td>Plant Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>6.422</td>
+                <td>https://openreview.net/forum?id=fEoYkscKoS</td>
+                <td>https://zenodo.org/records/5092309</td>
+            </tr>
+            <tr>
+                <td>ImageWeeds [Ra23c]</td>
+                <td>2023</td>
+                <td>Rai et al.</td>
+                <td>Weeds: Kochia, Common ragweed, Horseweed, Redroot pigweed, Waterhemp;</td>
+                <td>Weeds: Bassia scoparia, Ambrosia artemisiifolia, Erigeron canadensis, Amaranthus retroflexus, Amaranthus tuberculatus;</td>
+                <td>Whole plant</td>
+                <td>Weed Identification</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>3.975</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S2352340923007709</td>
+                <td>https://data.mendeley.com/datasets/8kjcztbjz2/2</td>
+            </tr>
+            <tr>
+                <td>LucasVision [Yo23]</td>
+                <td>2023</td>
+                <td>Yordanov et al.</td>
+                <td>Crops: Common wheat, Durum wheat, Barley, Rye, Oats, Maize, Potatoes, Sugar beet, Sunflower, Rape/Turnip rape, Soybeans, Temporary grassland;</td>
+                <td>Crops: Triticum aestivum, Triticum durum, Hordeum vulgare, Secale cereale, Avena sativa, Zea mays, Solanum tuberosum, Beta vulgaris, Helianthus annuus, Brassica napus, Glycine max;</td>
+                <td>Ground cover crops</td>
+                <td>Plant Identification</td>
+                <td>Image Classes</td>
+                <td>15,876 high-quality labeled images</td>
+                <td>16.946</td>
+                <td>https://arxiv.org/abs/2305.04994v1</td>
+                <td>https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/DRLL/LUCASvision/</td>
+            </tr>
+            <tr>
+                <td>MaizeDiseaseSymptoms [Wi18]</td>
+                <td>2018</td>
+                <td>Wiesner-Hanks et al.</td>
+                <td>Crops: Maize;</td>
+                <td>Crops: Zea mays;</td>
+                <td>Leaf</td>
+                <td>Disease Detection</td>
+                <td>Other (Polyline)</td>
+                <td>Lesion annotations (number of lesions marked with lines)</td>
+                <td>18.222</td>
+                <td>https://doi.org/10.1186/s13104-018-3548-6</td>
+                <td>https://osf.io/p67rz/?view_only=</td>
+            </tr>
+            <tr>
+                <td>MaizeWeedDataset [Ol22]</td>
+                <td>2022</td>
+                <td>Olaniyi et al.</td>
+                <td>Crops: Maize; Weeds: Various;</td>
+                <td>Crops: Zea mays; Weeds: various;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection, Plant Identification, Weed Identification</td>
+                <td>Bounding Boxes</td>
+                <td>500 labeled images, 36,874 total images (18,187 from the dry season, 18,187 from the wet season, and 500 annotated images)</td>
+                <td>500</td>
+                <td>https://data.mendeley.com/datasets/jjbfcckrsp/1</td>
+                <td>https://data.mendeley.com/datasets/jjbfcckrsp/1</td>
+            </tr>
+            <tr>
+                <td>MFWD [Ge24]</td>
+                <td>2024</td>
+                <td>Genze et al.</td>
+                <td>Crops: Maize, Sorghum; Weeds: Various;</td>
+                <td>Crops: Sorghum bicolor, Zea mays;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Image Classes, Bounding Boxes, Segmentation Masks</td>
+                <td></td>
+                <td>94.321</td>
+                <td>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10805845/</td>
+                <td>https://github.com/grimmlab/MFWD</td>
+            </tr>
+            <tr>
+                <td>NarrabriChickpea [We24f]</td>
+                <td>2021</td>
+                <td>Coleman, Guy</td>
+                <td>Crops: Chickpeas; Weeds: Asteraceae, Brassicaceae, Rigid Ryegrass, Non-grass species, Grasses;</td>
+                <td>Crops: Cicer arietinum; Weeds: Asteraceae, Brassicaceae, Lolium Rigidum, Non-Poaceae, Poaceae;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>31</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/839a5f35-9c7b-4df3-92f4-d0fc15120920</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/839a5f35-9c7b-4df3-92f4-d0fc15120920</td>
+            </tr>
+            <tr>
+                <td>NarrabriWheat [We24a]</td>
+                <tr>
+                  <td>OpenWeedPhenotype [Ma20]</td>
+                  <td>2020</td>
+                  <td>Leminen Madsen et al.</td>
+                  <td>Weeds: Blackgrass, Scarlet pimpernel, Fat-hen, Common chickweed, Various;</td>
+                  <td>Weeds: Alopecurus myosuroides, Anagallis arvensis, Chenopodium album, Stellaria media;</td>
+                  <td>Leaf</td>
+                  <td>Weed Detection, Weed Identification</td>
+                  <td>Bounding Boxes, Image Classes</td>
+                  <td></td>
+                  <td>7.590</td>
+                  <td>https://www.mdpi.com/2072-4292/12/8/1246</td>
+                  <td>https://vision.eng.au.dk/open-plant-phenotyping-database/</td>
+              </tr>
+              <tr>
+                  <td>PaddyDoctor [Pe23]</td>
+                  <td>2023</td>
+                  <td>Petchiammal et al.</td>
+                  <td>Crops: Rice;</td>
+                  <td>Crops: Oryza sativa;</td>
+                  <td>Leaf</td>
+                  <td>Disease Classification</td>
+                  <td>Image Classes</td>
+                  <td>12 Different Diseases, More Images at,: https://paddydoc.github.io/</td>
+                  <td>10.407</td>
+                  <td>http://arxiv.org/abs/2205.11108</td>
+                  <td>https://www.kaggle.com/competitions/paddy-disease-classification/data</td>
+              </tr>
+              <tr>
+                  <td>PalmerAmaranthGrowth [We24m]</td>
+                  <td>2023</td>
+                  <td>Coleman et al.</td>
+                  <td>Crops: Cotton; Weeds: Palmer amaranth;</td>
+                  <td>Crops: Gossypium spp.; Weeds: Amaranthus palmeri;</td>
+                  <td>Whole plant</td>
+                  <td>Weed Detection</td>
+                  <td>Bounding Boxes</td>
+                  <td></td>
+                  <td>614</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/5c78d067-8750-4803-9cbe-57df8fae55e4</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/5c78d067-8750-4803-9cbe-57df8fae55e4</td>
+              </tr>
+              <tr>
+                  <td>PhenoBench [We24]</td>
+                  <td>2024</td>
+                  <td>Weyler et al.</td>
+                  <td>Crops: Sugar beet; Weeds: Various;</td>
+                  <td>Crops: Beta vulgaris; Weeds: Chenopodium album, Polygonum aviculare;</td>
+                  <td>Leaf, Whole plant</td>
+                  <td>Plant Identification, Weed Detection</td>
+                  <td>Segmentation Masks</td>
+                  <td>71,264 leaf instances labeled</td>
+                  <td>2.179</td>
+                  <td>https://ieeexplore.ieee.org/abstract/document/10572312</td>
+                  <td>https://www.phenobench.org/dataset.html</td>
+              </tr>
+              <tr>
+                  <td>PlantSeedlingClassification [Gi17]</td>
+                  <td>2017</td>
+                  <td>Giselsson et al.</td>
+                  <td>Crops: Maize, Common wheat, Sugar beet; Weeds: Various;</td>
+                  <td>Crops: Zea mays, Triticum aestivum, Beta vulgaris; Weeds: Various;</td>
+                  <td>Seedlings</td>
+                  <td>Seedling Classification</td>
+                  <td>Image Classes</td>
+                  <td>960 different plants</td>
+                  <td>n.a.</td>
+                  <td>https://arxiv.org/abs/1711.05458v1</td>
+                  <td>https://vision.eng.au.dk/plant-seedlings-dataset/</td>
+              </tr>
+              <tr>
+                  <td>PumkinDiseases [RBH24]</td>
+                  <td>2024</td>
+                  <td>Rashid, Mohammad Rifat Ahmmad; Biswas, Joy; Hossain, Md Miskat</td>
+                  <td>Crops: Pumpkin;</td>
+                  <td>Crops: Cucurbita;</td>
+                  <td>Leaf</td>
+                  <td>Disease Identification</td>
+                  <td>Image Classes</td>
+                  <td></td>
+                  <td>2.000</td>
+                  <td>https://data.mendeley.com/datasets/wtxcw8wpxb/1</td>
+                  <td>https://data.mendeley.com/datasets/wtxcw8wpxb/1</td>
+              </tr>
+              <tr>
+                  <td>RadishWheatDataset [We24j]</td>
+                  <td>2022</td>
+                  <td>Rayner, Gilbert</td>
+                  <td>Crops: Wheat; Weeds: Wild radish;</td>
+                  <td>Crops: Triticum aestivum; Weeds: Raphanus raphanistrum;</td>
+                  <td>Whole plant</td>
+                  <td>Weed Detection</td>
+                  <td>Bounding Boxes</td>
+                  <td></td>
+                  <td>552</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/8b8f134f-ede4-4792-b1f7-d38fc05d8127</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/8b8f134f-ede4-4792-b1f7-d38fc05d8127</td>
+              </tr>
+              <tr>
+                  <td>RiceLeafDiseases [An23]</td>
+                  <td>2023</td>
+                  <td>Antony, Lourdu; Prasanth, Leo</td>
+                  <td>Crops: Rice;</td>
+                  <td>Crops: Oryza sativa;</td>
+                  <td>Leaf</td>
+                  <td>Disease Detection</td>
+                  <td>Image Classes</td>
+                  <td>Diseases: Bacterialblight, Brownspot, Leafsmut</td>
+                  <td>4.684</td>
+                  <td>https://data.mendeley.com/datasets/dwtn3c6w6p/1</td>
+                  <td>https://data.mendeley.com/datasets/dwtn3c6w6p/1</td>
+              </tr>
+              <tr>
+                  <td>RicePanicles [Ra23b]</td>
+                  <td>2023</td>
+                  <td>Rashid et al.</td>
+                  <td>Crops: Rice;</td>
+                  <td>Crops: Oryza sativa;</td>
+                  <td>Panicle, Fruit</td>
+                  <td>Panicle Detection</td>
+                  <td>Bounding Boxes</td>
+                  <td>5701 images after data augmentation.</td>
+                  <td>2.193</td>
+                  <td>https://www.sciencedirect.com/science/article/pii/S2352340923008399#fig0001</td>
+                  <td>https://data.mendeley.com/datasets/ndb6t28xbk/4</td>
+              </tr>
+              <tr>
+                  <td>RoboWeedMap [TJG22]</td>
+                  <td>2022</td>
+                  <td>Teimouri, Nima; Jørgensen, Rasmus Nyholm; Green, Ole;</td>
+                  <td>Crops: Barley; Weeds: Grasses, Mustard family;</td>
+                  <td>Crops: Hordeum vulgare; Weeds: Poaceae, Brassicaceae;</td>
+                  <td>Whole plant</td>
+                  <td>Weed Detection</td>
+                  <td>Bounding Boxes</td>
+                  <td></td>
+                  <td>1.147</td>
+                  <td>https://www.mdpi.com/2073-4395/12/5/1167</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/aa0cb351-9b5a-400f-bb2e-ed02b2da3699</td>
+              </tr>
+              <tr>
+                  <td>RumexLeaves [GAN23]</td>
+                  <td>2023</td>
+                  <td>Güldenring, Ronja; Andersen, Rasmus Eckholdt; Nalpantidis, Lazaros</td>
+                  <td>Weeds: Broad-leaved dock;</td>
+                  <td>Weeds: Rumex obtusifolius;</td>
+                  <td>Leaf</td>
+                  <td>Plant Detection, Leaf Strcture Analysis</td>
+                  <td>Segmentation Mask, Bounding Boxes, Other (Polyline)</td>
+                  <td></td>
+                  <td>809</td>
+                  <td>https://arxiv.org/abs/2312.08805v1</td>
+                  <td>https://dtu-pas.github.io/RumexLeaves/</td>
+              </tr>
+              <tr>
+                  <td>RyegrassSeedlings [We24l]</td>
+                  <td>2022</td>
+                  <td>Leon, Lorenzo</td>
+                  <td>Crops: None (Fallow); Weeds: Ryegrass;</td>
+                  <td>Crops: None (Fallow); Weeds: Lolium Perenne;</td>
+                  <td>Whole plant</td>
+                  <td>Weed Detection</td>
+                  <td>Bounding Boxes</td>
+                  <td></td>
+                  <td>14</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/c828f20d-9b3b-451a-b1a3-eb35398760da</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/c828f20d-9b3b-451a-b1a3-eb35398760da</td>
+              </tr>
+              <tr>
+                  <td>SorghumAphids [Ra24]</td>
+                  <td>2024</td>
+                  <td>Rahman et al.</td>
+                  <td>Crops: Sorghum; Insects: Aphids;</td>
+                  <td>Crops: Sorghum bicolor;</td>
+                  <td>Leaf</td>
+                  <td>Pest Detection</td>
+                  <td>Segmentation Masks</td>
+                  <td>Insects: Aphidoidea;</td>
+                  <td>54.742</td>
+                  <td>https://arxiv.org/abs/2405.04305v1</td>
+                  <td>https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/N3YJXG</td>
+              </tr>
+              <tr>
+                  <td>SoybeanNet [Li24]</td>
+                  <td>2024</td>
+                  <td>Li et al.</td>
+                  <td>Crops: Soybean;</td>
+                  <td>Crops: Glycine max;</td>
+                  <td>Panicle, Fruit</td>
+                  <td>Bean Counting</td>
+                  <td>Segmentation Masks, Other (Points)</td>
+                  <td>262,611 (!) manually annotated soybean pods</td>
+                  <td>196</td>
+                  <td>https://www.sciencedirect.com/science/article/pii/S0168169924002527</td>
+                  <td>https://www.kaggle.com/datasets/jiajiali/uav-based-soybean-pod-images/data</td>
+              </tr>
+              <tr>
+                  <td>SoyNet [Ra23a]</td>
+                  <td>2023</td>
+                  <td>Rajput et al.</td>
+                  <td>Crops: Soybean;</td>
+                  <td>Crops: Glycine max;</td>
+                  <td>Leaf</td>
+                  <td>Disease Detection</td>
+                  <td>Image Classes</td>
+                  <td></td>
+                  <td>4500+</td>
+                  <td>https://www.sciencedirect.com/science/article/pii/S2352340923005474</td>
+                  <td>https://data.mendeley.com/datasets/w2r855hpx8/1</td>
+              </tr>
+              <tr>
+                  <td>SugarcanePlantCounting [UJ24]</td>
+                  <td>2024</td>
+                  <td>Ubaid, Muhammad Talha; Javaid, Sameena</td>
+                  <td>Crops: Sugarcane;</td>
+                  <td>Crops: Saccharum officinarum;</td>
+                  <td>Cane, Fruit</td>
+                  <td>Plant Counting</td>
+                  <td>Bounding Boxes</td>
+                  <td></td>
+                  <td>3.730</td>
+                  <td>https://www.mdpi.com/2313-433X/10/5/102</td>
+                  <td>https://data.mendeley.com/datasets/m5zxyznvgz/1 , https://data.mendeley.com/datasets/ydr8vgg64w/1 </td>
+              </tr>
+              <tr>
+                  <td>TobaccoAerialDataset [Mo23]</td>
+                  <td>2023</td>
+                  <td>Moazzam, Imran</td>
+                  <td>Crops: Tobacco; Weeds: Various;</td>
+                  <td>Crops: Nicotiana tabacum; Weeds: Various;</td>
+                  <td>Whole plant</td>
+                  <td>Weed Detection</td>
+                  <td>Semantic Masks</td>
+                  <td></td>
+                  <td>1.870</td>
+                  <td>https://data.mendeley.com/datasets/5dpc5gbgpz/2</td>
+                  <td>https://data.mendeley.com/datasets/5dpc5gbgpz/1</td>
+              </tr>
+              <tr>
+                  <td>WE3DS [Ki23]</td>
+                  <td>2023</td>
+                  <td>Kitzler et al.</td>
+                  <td>Crops: Broad bean, Pea, Corn, Soybean, Sunflower, Sugar beet; Weeds: Corn spurry, Red-root amaranth, Common buckwheat, Red fingergrass, Common wild oat, Cornflower, Milk thistle, Rye brome, Narrow-leaved plantain, Small-flower geranium;</td>
+                  <td>Crops: Vicia faba, Pisum sativum, Zea mays, Glycine max, Helianthus annuus, Beta vulgaris; Weeds: Spergula arvensis, Amaranthus retroflexus, Fagopyrum esculentum, Digitaria sanguinalis, Avena fatua, Centaurea cyanus, Silybum marianum, Bromus secalinus, Plantago lanceolata, Geranium pusillum;</td>
+                  <td>Leaf, Whole plant</td>
+                  <td>Weed Detection, Weed Identification, Crop Identification</td>
+                  <td>Semantic Masks</td>
+                  <td>RGB-D Images</td>
+                  <td>2.568</td>
+                  <td>https://www.mendeley.com/catalogue/6873cb53-b2e2-34e7-8b49-5d36b1c51fbe/</td>
+                  <td>https://zenodo.org/records/7457983</td>
+              </tr>
+              <tr>
+                  <td>WeedGrowthState [Te18]</td>
+                  <td>2018</td>
+                  <td>Teimouri et al.</td>
+                  <td>Weeds: Knotgrass, Blackgrass, Fat-hen, Various;</td>
+                  <td>Weeds: Alopecurus myosuroides, Chenopodium album, Polygonum spp., Various;</td>
+                  <td>Leaf</td>
+                  <td>Weed Growth Estimation, Leaf Counting</td>
+                  <td>Image Classes</td>
+                  <td>Classification into 9 growth stages (1-8 leaves and &gt;8 leaves)</td>
+                  <td>12.165</td>
+                  <td>https://www.mdpi.com/1424-8220/18/5/1580</td>
+                  <td>https://vision.eng.au.dk/leaf-counting-dataset/</td>
+              </tr>
+              <tr>
+                  <td>WildCarrotFlowersInCanola [We24h]</td>
+                  <td>2021</td>
+                  <td>Leon, Lorenzo</td>
+                  <td>Crops: Canola; Weeds: Wild carrot;</td>
+                  <td>Crops: Brassica napus; Weeds: Daucus carota;</td>
+                  <td>Whole plant</td>
+                  <td>Weed Detection</td>
+                  <td>Bounding Boxes</td>
+                  <td></td>
+                  <td>52</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/c4a80379-afda-4972-b274-82a544addd0d</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/c4a80379-afda-4972-b274-82a544addd0d</td>
+              </tr>
+              <tr>
+                  <td>WildRadishInWheat [We24i]</td>
+                  <td>2021</td>
+                  <td>Coleman, Guy</td>
+                  <td>Crops: Wheat; Weeds: Wild radish;</td>
+                  <td>Crops: Triticum aestivum; Weeds: Raphanus raphanistrum;</td>
+                  <td>Whole plant</td>
+                  <td>Weed Detection</td>
+                  <td>Bounding Boxes</td>
+                  <td></td>
+                  <td>41</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/09af32ad-2e9e-4f7c-ae08-55374824ee15</td>
+                  <td>https://weed-ai.sydney.edu.au/datasets/09af32ad-2e9e-4f7c-ae08-55374824ee15</td>
+              </tr>
+              <tr>
+                  <td>YOLOWeeds [Da23]</td>
+                  <td>2023</td>
+                  <td>Dang et al.</td>
+                  <td>Weeds: Waterhemp, Morningglory, Purslane, Spotted Spurge, Carpetweed, Ragweed, Eclipta, Prickly Sida, Palmer Amaranth, Sicklepod, Goosegrass, Cutleaf Groundcherry;</td>
+                  <td>Weeds: Amaranthus tuberculatus, Ipomoea spp., Portulaca oleracea, Euphorbia maculata, Mollugo verticillata, Ambrosia artemisiifolia, Eclipta prostrata, Sida spinosa, Amaranthus palmeri, Senna obtusifolia, Eleusine indica, Physalis angulata;</td>
+                  <td>Leaf</td>
+                  <td>Weed Detection</td>
+                  <td>Bounding Boxes</td>
+                  <td></td>
+                  <td>5.648</td>
+                  <td>https://www.sciencedirect.com/science/article/pii/S0168169923000431</td>
+                  <td>https://zenodo.org/records/7535814 ,  https://weed-ai.sydney.edu.au/datasets/2c14915b-0827-4b65-9908-d2a6df0d48f3 </td>
+              </tr>              <td>2021</td>
+                <td>Coleman, Guy</td>
+                <td>Crops: Wheat; Weeds: Annual Ryegrass, Turnipweed, Common Sowthistle;</td>
+                <td>Crops: Triticum aestivum; Weeds: Lolium rigidum, Rapistrum rugosum, Sonchus oleraceu;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>184</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/dc322d80-be00-49cf-822c-9e9b40e37425</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/dc322d80-be00-49cf-822c-9e9b40e37425</td>
+            </tr>
+            <tr>
+                <td>NorthernWAWheatbeltBlueLupins [We24g]</td>
+                <td>2021</td>
+                <td>Quinlan et al.</td>
+                <td>Crops: Lupins; Weeds: Sandplain lupin;</td>
+                <td>Crops: Lupinus spp.; Weeds: Lupinus cosentinii;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>217</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/9df290f4-a29b-44b2-9de6-24bca1cee846</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/9df290f4-a29b-44b2-9de6-24bca1cee846</td>
+            </tr>
+            <tr>
+                <td>OpenWeedPhenotype [Ma20]</td>
+                <td>2020</td>
+                <td>Leminen Madsen et al.</td>
+                <td>Weeds: Blackgrass, Scarlet pimpernel, Fat-hen, Common chickweed, Various;</td>
+                <td>Weeds: Alopecurus myosuroides, Anagallis arvensis, Chenopodium album, Stellaria media;</td>
+                <td>Leaf</td>
+                <td>Weed Detection, Weed Identification</td>
+                <td>Bounding Boxes, Image Classes</td>
+                <td></td>
+                <td>7.590</td>
+                <td>https://www.mdpi.com/2072-4292/12/8/1246</td>
+                <td>https://vision.eng.au.dk/open-plant-phenotyping-database/</td>
+            </tr>
+            <tr>
+                <td>PaddyDoctor [Pe23]</td>
+                <td>2023</td>
+                <td>Petchiammal et al.</td>
+                <td>Crops: Rice;</td>
+                <td>Crops: Oryza sativa;</td>
+                <td>Leaf</td>
+                <td>Disease Classification</td>
+                <td>Image Classes</td>
+                <td>12 Different Diseases, More Images at,: https://paddydoc.github.io/</td>
+                <td>10.407</td>
+                <td>http://arxiv.org/abs/2205.11108</td>
+                <td>https://www.kaggle.com/competitions/paddy-disease-classification/data</td>
+            </tr>
+            <tr>
+                <td>PalmerAmaranthGrowth [We24m]</td>
+                <td>2023</td>
+                <td>Coleman et al.</td>
+                <td>Crops: Cotton; Weeds: Palmer amaranth;</td>
+                <td>Crops: Gossypium spp.; Weeds: Amaranthus palmeri;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>614</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/5c78d067-8750-4803-9cbe-57df8fae55e4</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/5c78d067-8750-4803-9cbe-57df8fae55e4</td>
+            </tr>
+            <tr>
+                <td>PhenoBench [We24]</td>
+                <td>2024</td>
+                <td>Weyler et al.</td>
+                <td>Crops: Sugar beet; Weeds: Various;</td>
+                <td>Crops: Beta vulgaris; Weeds: Chenopodium album, Polygonum aviculare;</td>
+                <td>Leaf, Whole plant</td>
+                <td>Plant Identification, Weed Detection</td>
+                <td>Segmentation Masks</td>
+                <td>71,264 leaf instances labeled</td>
+                <td>2.179</td>
+                <td>https://ieeexplore.ieee.org/abstract/document/10572312</td>
+                <td>https://www.phenobench.org/dataset.html</td>
+            </tr>
+            <tr>
+                <td>PlantSeedlingClassification [Gi17]</td>
+                <td>2017</td>
+                <td>Giselsson et al.</td>
+                <td>Crops: Maize, Common wheat, Sugar beet; Weeds: Various;</td>
+                <td>Crops: Zea mays, Triticum aestivum, Beta vulgaris; Weeds: Various;</td>
+                <td>Seedlings</td>
+                <td>Seedling Classification</td>
+                <td>Image Classes</td>
+                <td>960 different plants</td>
+                <td>n.a.</td>
+                <td>https://arxiv.org/abs/1711.05458v1</td>
+                <td>https://vision.eng.au.dk/plant-seedlings-dataset/</td>
+            </tr>
+            <tr>
+                <td>PumkinDiseases [RBH24]</td>
+                <td>2024</td>
+                <td>Rashid, Mohammad Rifat Ahmmad; Biswas, Joy; Hossain, Md Miskat</td>
+                <td>Crops: Pumpkin;</td>
+                <td>Crops: Cucurbita;</td>
+                <td>Leaf</td>
+                <td>Disease Identification</td>
+                <td>Image Classes</td>
+                <td></td>
+                <td>2.000</td>
+                <td>https://data.mendeley.com/datasets/wtxcw8wpxb/1</td>
+                <td>https://data.mendeley.com/datasets/wtxcw8wpxb/1</td>
+            </tr>
+            <tr>
+                <td>RadishWheatDataset [We24j]</td>
+                <td>2022</td>
+                <td>Rayner, Gilbert</td>
+                <td>Crops: Wheat; Weeds: Wild radish;</td>
+                <td>Crops: Triticum aestivum; Weeds: Raphanus raphanistrum;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>552</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/8b8f134f-ede4-4792-b1f7-d38fc05d8127</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/8b8f134f-ede4-4792-b1f7-d38fc05d8127</td>
+            </tr>
+            <tr>
+                <td>RiceLeafDiseases [An23]</td>
+                <td>2023</td>
+                <td>Antony, Lourdu; Prasanth, Leo</td>
+                <td>Crops: Rice;</td>
+                <td>Crops: Oryza sativa;</td>
+                <td>Leaf</td>
+                <td>Disease Detection</td>
+                <td>Image Classes</td>
+                <td>Diseases: Bacterialblight, Brownspot, Leafsmut</td>
+                <td>4.684</td>
+                <td>https://data.mendeley.com/datasets/dwtn3c6w6p/1</td>
+                <td>https://data.mendeley.com/datasets/dwtn3c6w6p/1</td>
+            </tr>
+            <tr>
+                <td>RicePanicles [Ra23b]</td>
+                <td>2023</td>
+                <td>Rashid et al.</td>
+                <td>Crops: Rice;</td>
+                <td>Crops: Oryza sativa;</td>
+                <td>Panicle, Fruit</td>
+                <td>Panicle Detection</td>
+                <td>Bounding Boxes</td>
+                <td>5701 images after data augmentation.</td>
+                <td>2.193</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S2352340923008399#fig0001</td>
+                <td>https://data.mendeley.com/datasets/ndb6t28xbk/4</td>
+            </tr>
+            <tr>
+                <td>RoboWeedMap [TJG22]</td>
+                <td>2022</td>
+                <td>Teimouri, Nima; Jørgensen, Rasmus Nyholm; Green, Ole;</td>
+                <td>Crops: Barley; Weeds: Grasses, Mustard family;</td>
+                <td>Crops: Hordeum vulgare; Weeds: Poaceae, Brassicaceae;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>1.147</td>
+                <td>https://www.mdpi.com/2073-4395/12/5/1167</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/aa0cb351-9b5a-400f-bb2e-ed02b2da3699</td>
+            </tr>
+            <tr>
+                <td>RumexLeaves [GAN23]</td>
+                <td>2023</td>
+                <td>Güldenring, Ronja; Andersen, Rasmus Eckholdt; Nalpantidis, Lazaros</td>
+                <td>Weeds: Broad-leaved dock;</td>
+                <td>Weeds: Rumex obtusifolius;</td>
+                <td>Leaf</td>
+                <td>Plant Detection, Leaf Strcture Analysis</td>
+                <td>Segmentation Mask, Bounding Boxes, Other (Polyline)</td>
+                <td></td>
+                <td>809</td>
+                <td>https://arxiv.org/abs/2312.08805v1</td>
+                <td>https://dtu-pas.github.io/RumexLeaves/</td>
+            </tr>
+            <tr>
+                <td>RyegrassSeedlings [We24l]</td>
+                <td>2022</td>
+                <td>Leon, Lorenzo</td>
+                <td>Crops: None (Fallow); Weeds: Ryegrass;</td>
+                <td>Crops: None (Fallow); Weeds: Lolium Perenne;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>14</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/c828f20d-9b3b-451a-b1a3-eb35398760da</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/c828f20d-9b3b-451a-b1a3-eb35398760da</td>
+            </tr>
+            <tr>
+                <td>SorghumAphids [Ra24]</td>
+                <td>2024</td>
+                <td>Rahman et al.</td>
+                <td>Crops: Sorghum; Insects: Aphids;</td>
+                <td>Crops: Sorghum bicolor;</td>
+                <td>Leaf</td>
+                <td>Pest Detection</td>
+                <td>Segmentation Masks</td>
+                <td>Insects: Aphidoidea;</td>
+                <td>54.742</td>
+                <td>https://arxiv.org/abs/2405.04305v1</td>
+                <td>https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/N3YJXG</td>
+            </tr>
+            <tr>
+                <td>SoybeanNet [Li24]</td>
+                <td>2024</td>
+                <td>Li et al.</td>
+                <td>Crops: Soybean;</td>
+                <td>Crops: Glycine max;</td>
+                <td>Panicle, Fruit</td>
+                <td>Bean Counting</td>
+                <td>Segmentation Masks, Other (Points)</td>
+                <td>262,611 (!) manually annotated soybean pods</td>
+                <td>196</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S0168169924002527</td>
+                <td>https://www.kaggle.com/datasets/jiajiali/uav-based-soybean-pod-images/data</td>
+            </tr>
+            <tr>
+                <td>SoyNet [Ra23a]</td>
+                <td>2023</td>
+                <td>Rajput et al.</td>
+                <td>Crops: Soybean;</td>
+                <td>Crops: Glycine max;</td>
+                <td>Leaf</td>
+                <td>Disease Detection</td>
+                <td>Image Classes</td>
+                <td></td>
+                <td>4500+</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S2352340923005474</td>
+                <td>https://data.mendeley.com/datasets/w2r855hpx8/1</td>
+            </tr>
+            <tr>
+                <td>SugarcanePlantCounting [UJ24]</td>
+                <td>2024</td>
+                <td>Ubaid, Muhammad Talha; Javaid, Sameena</td>
+                <td>Crops: Sugarcane;</td>
+                <td>Crops: Saccharum officinarum;</td>
+                <td>Cane, Fruit</td>
+                <td>Plant Counting</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>3.730</td>
+                <td>https://www.mdpi.com/2313-433X/10/5/102</td>
+                <td>https://data.mendeley.com/datasets/m5zxyznvgz/1 , https://data.mendeley.com/datasets/ydr8vgg64w/1 </td>
+            </tr>
+            <tr>
+                <td>TobaccoAerialDataset [Mo23]</td>
+                <td>2023</td>
+                <td>Moazzam, Imran</td>
+                <td>Crops: Tobacco; Weeds: Various;</td>
+                <td>Crops: Nicotiana tabacum; Weeds: Various;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Semantic Masks</td>
+                <td></td>
+                <td>1.870</td>
+                <td>https://data.mendeley.com/datasets/5dpc5gbgpz/2</td>
+                <td>https://data.mendeley.com/datasets/5dpc5gbgpz/1</td>
+            </tr>
+            <tr>
+                <td>WE3DS [Ki23]</td>
+                <td>2023</td>
+                <td>Kitzler et al.</td>
+                <td>Crops: Broad bean, Pea, Corn, Soybean, Sunflower, Sugar beet; Weeds: Corn spurry, Red-root amaranth, Common buckwheat, Red fingergrass, Common wild oat, Cornflower, Milk thistle, Rye brome, Narrow-leaved plantain, Small-flower geranium;</td>
+                <td>Crops: Vicia faba, Pisum sativum, Zea mays, Glycine max, Helianthus annuus, Beta vulgaris; Weeds: Spergula arvensis, Amaranthus retroflexus, Fagopyrum esculentum, Digitaria sanguinalis, Avena fatua, Centaurea cyanus, Silybum marianum, Bromus secalinus, Plantago lanceolata, Geranium pusillum;</td>
+                <td>Leaf, Whole plant</td>
+                <td>Weed Detection, Weed Identification, Crop Identification</td>
+                <td>Semantic Masks</td>
+                <td>RGB-D Images</td>
+                <td>2.568</td>
+                <td>https://www.mendeley.com/catalogue/6873cb53-b2e2-34e7-8b49-5d36b1c51fbe/</td>
+                <td>https://zenodo.org/records/7457983</td>
+            </tr>
+            <tr>
+                <td>WeedGrowthState [Te18]</td>
+                <td>2018</td>
+                <td>Teimouri et al.</td>
+                <td>Weeds: Knotgrass, Blackgrass, Fat-hen, Various;</td>
+                <td>Weeds: Alopecurus myosuroides, Chenopodium album, Polygonum spp., Various;</td>
+                <td>Leaf</td>
+                <td>Weed Growth Estimation, Leaf Counting</td>
+                <td>Image Classes</td>
+                <td>Classification into 9 growth stages (1-8 leaves and &gt;8 leaves)</td>
+                <td>12.165</td>
+                <td>https://www.mdpi.com/1424-8220/18/5/1580</td>
+                <td>https://vision.eng.au.dk/leaf-counting-dataset/</td>
+            </tr>
+            <tr>
+                <td>WildCarrotFlowersInCanola [We24h]</td>
+                <td>2021</td>
+                <td>Leon, Lorenzo</td>
+                <td>Crops: Canola; Weeds: Wild carrot;</td>
+                <td>Crops: Brassica napus; Weeds: Daucus carota;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>52</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/c4a80379-afda-4972-b274-82a544addd0d</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/c4a80379-afda-4972-b274-82a544addd0d</td>
+            </tr>
+            <tr>
+                <td>WildRadishInWheat [We24i]</td>
+                <td>2021</td>
+                <td>Coleman, Guy</td>
+                <td>Crops: Wheat; Weeds: Wild radish;</td>
+                <td>Crops: Triticum aestivum; Weeds: Raphanus raphanistrum;</td>
+                <td>Whole plant</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>41</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/09af32ad-2e9e-4f7c-ae08-55374824ee15</td>
+                <td>https://weed-ai.sydney.edu.au/datasets/09af32ad-2e9e-4f7c-ae08-55374824ee15</td>
+            </tr>
+            <tr>
+                <td>YOLOWeeds [Da23]</td>
+                <td>2023</td>
+                <td>Dang et al.</td>
+                <td>Weeds: Waterhemp, Morningglory, Purslane, Spotted Spurge, Carpetweed, Ragweed, Eclipta, Prickly Sida, Palmer Amaranth, Sicklepod, Goosegrass, Cutleaf Groundcherry;</td>
+                <td>Weeds: Amaranthus tuberculatus, Ipomoea spp., Portulaca oleracea, Euphorbia maculata, Mollugo verticillata, Ambrosia artemisiifolia, Eclipta prostrata, Sida spinosa, Amaranthus palmeri, Senna obtusifolia, Eleusine indica, Physalis angulata;</td>
+                <td>Leaf</td>
+                <td>Weed Detection</td>
+                <td>Bounding Boxes</td>
+                <td></td>
+                <td>5.648</td>
+                <td>https://www.sciencedirect.com/science/article/pii/S0168169923000431</td>
+                <td>https://zenodo.org/records/7535814 ,  https://weed-ai.sydney.edu.au/datasets/2c14915b-0827-4b65-9908-d2a6df0d48f3 </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
+
+
 
   <!-- Citation Section -->
   <section class="section has-background-light">
@@ -111,5 +1100,51 @@
       <p>&copy; 2024 Agricultural Dataset Survey | <a href="https://github.com/field_dataset_survey">GitHub Repository</a></p>
     </div>
   </footer>
+
+  <!--Scritp for table sorting-->
+  <script>
+    function sortTable(n, header) {
+      const table = document.getElementById("datasetTable");
+      let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      switching = true;
+      dir = "asc";
+    
+      // Remove other sort icons
+      document.querySelectorAll('.sort-icon').forEach(icon => {
+        icon.innerHTML = "↕";
+      });
+    
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+    
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+    
+          if ((dir === "asc" && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) || 
+              (dir === "desc" && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+    
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          switchcount++;
+        } else if (switchcount === 0 && dir === "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    
+      // Update the sort icon
+      const icon = header.querySelector('.sort-icon');
+      icon.innerHTML = (dir === "asc") ? "↑" : "↓";
+    }
+    </script> 
 </body>
 </html>
+
