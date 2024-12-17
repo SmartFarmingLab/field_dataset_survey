@@ -1,35 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Field Dataset Survey</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="description" content="Agricultural Computer Vision Dataset Survey: A curated list of high-quality RGB image datasets for computer vision in agriculture.">
+  <meta name="keywords" content="Agriculture, Computer Vision, Datasets, RGB Images, Weed Detection">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agricultural Computer Vision Dataset Survey</title>
+
+  <!-- Styles and Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" href="./static/images/favicon.svg">
 </head>
 <body>
-  <header>
-    <h1>Field Dataset Survey</h1>
-    <p>An overview of datasets for smart farming applications.</p>
-  </header>
-  <main>
-    <section>
-      <h2>Paper</h2>
-      <p>Read our <a href="assets/paper.pdf" target="_blank">full paper</a>.</p>
-    </section>
-    <section>
-      <h2>Abstract</h2>
-      <p>Your abstract goes here...</p>
-    </section>
-    <section>
-      <h2>Supplementary Materials</h2>
-      <ul>
-        <li><a href="assets/dataset_1.csv" download>Dataset 1</a></li>
-        <li><a href="assets/figures.png" target="_blank">Figures</a></li>
-      </ul>
-    </section>
-  </main>
-  <footer>
-    <p>© 2024 Smart Farming Lab</p>
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://github.com/field_dataset_survey">
+        <strong>Field Dataset Survey</strong>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-1">Agricultural Computer Vision Dataset Survey</h1>
+        <h2 class="subtitle is-4">A curated catalogue of high-quality RGB image datasets for natural field scenes.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <h2 class="title is-3">Overview</h2>
+        <p>This project focuses on providing access to carefully selected datasets for computer vision tasks in agriculture. The collection includes:</p>
+        <ul>
+          <li>Weed detection and classification</li>
+          <li>Disease and pest detection</li>
+          <li>Seedling and crop detection</li>
+          <li>Plant growth stage detection</li>
+          <li>Phenotyping</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dataset Table Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Dataset Collection</h2>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Year</th>
+              <th>Author</th>
+              <th>Plant (English)</th>
+              <th>Task</th>
+              <th>Annotation</th>
+              <th>Images</th>
+              <th>Paper</th>
+              <th>Dataset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Replace with dynamic rows -->
+            <tr>
+              <td>AmsinckiaInChickpeas [We24b]</td>
+              <td>2023</td>
+              <td>Plant, Brad</td>
+              <td>Chickpeas, Ansinckia</td>
+              <td>Weed Detection</td>
+              <td>Bounding Boxes</td>
+              <td>124</td>
+              <td><a href="#">Link</a></td>
+              <td><a href="#">Dataset</a></td>
+            </tr>
+            <!-- More rows go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citation Section -->
+  <section class="section has-background-light">
+    <div class="container">
+      <h2 class="title is-3">Citation</h2>
+      <div class="content">
+        <p>If you use this collection in your research, please cite our paper:</p>
+        <pre><code>@article{heider2025survey,
+  title={A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes},
+  author={Heider, Nico and Gunreben, Lorenz and Zürner, Sebastian and Schieck, Martin},
+  journal={t.b.d.},
+  year={2025}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>&copy; 2024 Agricultural Dataset Survey | <a href="https://github.com/field_dataset_survey">GitHub Repository</a></p>
+    </div>
   </footer>
 </body>
 </html>
