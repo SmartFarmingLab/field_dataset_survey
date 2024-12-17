@@ -17,6 +17,9 @@
     .buttons {
       margin-top: 1rem;
     }
+    .jump-to-table {
+      margin-top: 1.5rem;
+    }
   </style>
 </head>
 <body>
@@ -34,11 +37,14 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <h1 class="title is-1">Agricultural Computer Vision Dataset Survey</h1>
-        <h2 class="subtitle is-4">A curated catalogue of high-quality RGB image datasets for natural field scenes.</h2>
+        <h2 class="subtitle is-4">Heider, Nico¹; Gunreben, Lorenz¹; Zürner, Sebastian¹; Schieck, Martin¹</h2>
+        <div class="content has-text-centered">
+          <p><a href="https://research.uni-leipzig.de/smart-farming/#/" target="_blank">Smart Farming Lab</a></p>
+        </div>
 
         <!-- Image from README -->
         <figure class="image has-text-centered">
-          <img src="static/images/plants.png" alt="Agricultural plants" style="display: inline-block; max-width: 800px;">
+          <img src="/static/images/plants.png" alt="Agricultural plants" style="display: inline-block; max-width: 800px;">
           <figcaption><em>Example images from included datasets. From left to right: LucasVision [Yo23], GlobalWheatHeadDetection [Da21], PaddyDoctor [Pe23], and CottonWeedID15 [Ch23].</em></figcaption>
         </figure>
 
@@ -50,9 +56,9 @@
             </span>
             <span>GitHub</span>
           </a>
-          <a href="./static/files/dataset_table.csv" class="button is-dark is-rounded">
+          <a href="./static/files/dataset_table.tsv" class="button is-dark is-rounded">
             <span class="icon">
-              <i class="fas fa-file-csv"></i>
+              <i class="fas fa-file-tsv"></i>
             </span>
             <span>CSV</span>
           </a>
@@ -69,6 +75,18 @@
             <span>arXiv</span>
           </a>
         </div>
+
+        <!-- README Description -->
+        <div class="content has-text-centered" style="margin-top: 1.5rem;">
+          <p>This repository contains a curated list of high-quality RGB image datasets for computer vision in agriculture, specifically focused on natural field scenes. The datasets were collected as part of our research paper "A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes" (Heider et al., 2025).</p>
+        </div>
+
+        <!-- Jump to Table Button -->
+        <div class="jump-to-table has-text-centered">
+          <a href="#datasetTable" class="button is-primary is-rounded">
+            Jump to Dataset Table
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -78,13 +96,21 @@
     <div class="container">
       <div class="content">
         <h2 class="title is-3">Overview</h2>
-        <p>This project focuses on providing access to carefully selected datasets for computer vision tasks in agriculture. The collection includes:</p>
+        <p>We provide access information to 45 carefully selected datasets that meet the following criteria:</p>
         <ul>
-          <li>Weed detection and classification</li>
-          <li>Disease and pest detection</li>
-          <li>Seedling and crop detection</li>
+          <li>Domain coherence: Natural field scenes (plants on fields or pastures taken under natural light)</li>
+          <li>High-quality ground truth data with substantial annotations</li>
+          <li>Consistent image quality (resolution, minimal motion blur, adequate lighting)</li>
+          <li>Original datasets (no web-scraped or reused images)</li>
+        </ul>
+        <p>The datasets cover various agricultural computer vision tasks:</p>
+        <ul>
+          <li>Weed detection and classification (29 datasets)</li>
+          <li>Disease and pest detection (9 datasets)</li>
+          <li>Seedling and crop detection (6 datasets)</li>
           <li>Plant growth stage detection</li>
           <li>Phenotyping</li>
+          <li>Various detection and counting tasks</li>
         </ul>
       </div>
     </div>
