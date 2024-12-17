@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css">
   <link rel="icon" href="./static/images/favicon.svg">
 </head>
 <body>
@@ -29,6 +30,13 @@
       <div class="container has-text-centered">
         <h1 class="title is-1">Agricultural Computer Vision Dataset Survey</h1>
         <h2 class="subtitle is-4">A curated catalogue of high-quality RGB image datasets for natural field scenes.</h2>
+
+        <!-- Main Image -->
+        <figure class="image has-text-centered">
+          <img src="static/images/plants.png" alt="Agricultural plants" style="display: inline-block; max-width: 800px;">
+          <figcaption><em>Example images from included datasets. From left to right: LucasVision [Yo23], GlobalWheatHeadDetection [Da21], PaddyDoctor [Pe23], and CottonWeedID15 [Ch23].</em></figcaption>
+        </figure>
+
 
         <!-- Action Buttons -->
         <div class="buttons is-centered">
@@ -101,7 +109,7 @@
   <section class="section">
     <div class="container">
       <h2 class="title is-3 has-text-centered">Dataset Collection</h2>
-      <div class="table-container">
+      <div class="table-container" style="overflow-x: auto;">
         <table class="table is-striped is-hoverable is-fullwidth" id="datasetTable">
           <thead>
             <tr>
@@ -158,14 +166,14 @@
     async function loadCSV() {
       const response = await fetch("static/files/dataset_table.tsv");
       const csvText = await response.text();
-
+    
       const rows = csvText.trim().split("\n");
       const tableBody = document.querySelector("#datasetTable tbody");
-
+    
       for (let i = 1; i < rows.length; i++) { // Start from 1 to skip header
         const cols = rows[i].split("\t");
         const row = document.createElement("tr");
-
+    
         cols.forEach((col, index) => {
           const cell = document.createElement("td");
           if (index === 9 || index === 10) { // Make multiple URLs clickable
@@ -191,18 +199,16 @@
     
     // Call the CSV loading function on page load
     document.addEventListener("DOMContentLoaded", loadCSV);
-  
-    // Script for table sorting
-
+    
+    // Sorting function (remains the same as before)
     function sortTable(n, header) {
       const table = document.getElementById("datasetTable");
       let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
       switching = true;
       dir = "asc";
     
-      // Remove other sort icons
       document.querySelectorAll('.sort-icon').forEach(icon => {
-        icon.innerHTML = "↕";
+        icon.innerHTML = "&#8597;";
       });
     
       while (switching) {
@@ -231,11 +237,11 @@
         }
       }
     
-      // Update the sort icon
       const icon = header.querySelector('.sort-icon');
-      icon.innerHTML = (dir === "asc") ? "↑" : "↓";
+      icon.innerHTML = (dir === "asc") ? "&#8593;" : "&#8595;";
     }
-    </script> 
+    </script>
+    
 </body>
 </html>
 
