@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css">
   <link rel="icon" href="./static/images/favicon.svg">
+  <style>
+    .buttons {
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -31,15 +36,14 @@
         <h1 class="title is-1">Agricultural Computer Vision Dataset Survey</h1>
         <h2 class="subtitle is-4">A curated catalogue of high-quality RGB image datasets for natural field scenes.</h2>
 
-        <!-- Main Image -->
+        <!-- Image from README -->
         <figure class="image has-text-centered">
           <img src="static/images/plants.png" alt="Agricultural plants" style="display: inline-block; max-width: 800px;">
           <figcaption><em>Example images from included datasets. From left to right: LucasVision [Yo23], GlobalWheatHeadDetection [Da21], PaddyDoctor [Pe23], and CottonWeedID15 [Ch23].</em></figcaption>
         </figure>
 
-
         <!-- Action Buttons -->
-        <div class="buttons is-centered">
+        <div class="buttons is-centered" style="margin-top: 1.5rem;">
           <a href="https://github.com/SmartFarmingLab/field_dataset_survey" class="button is-dark is-rounded">
             <span class="icon">
               <i class="fab fa-github"></i>
@@ -134,7 +138,6 @@
   </section>
 
 
-
   <!-- Citation Section -->
   <section class="section has-background-light">
     <div class="container">
@@ -206,30 +209,30 @@
       let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
       switching = true;
       dir = "asc";
-
+    
       document.querySelectorAll('.sort-icon').forEach(icon => {
         icon.innerHTML = "&#8597;";
       });
-
+    
       while (switching) {
         switching = false;
         rows = table.rows;
-
+    
         for (i = 1; i < (rows.length - 1); i++) {
           shouldSwitch = false;
           x = rows[i].getElementsByTagName("TD")[n];
           y = rows[i + 1].getElementsByTagName("TD")[n];
-
+    
           const xContent = n === 8 ? parseInt(x.innerHTML.replace(/\D/g, '')) || 0 : x.innerHTML.toLowerCase();
           const yContent = n === 8 ? parseInt(y.innerHTML.replace(/\D/g, '')) || 0 : y.innerHTML.toLowerCase();
-
+    
           if ((dir === "asc" && xContent > yContent) || 
               (dir === "desc" && xContent < yContent)) {
             shouldSwitch = true;
             break;
           }
         }
-
+    
         if (shouldSwitch) {
           rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
           switching = true;
@@ -239,7 +242,7 @@
           switching = true;
         }
       }
-
+    
       const icon = header.querySelector('.sort-icon');
       icon.innerHTML = (dir === "asc") ? "&#8593;" : "&#8595;";
     }
@@ -247,4 +250,3 @@
     
 </body>
 </html>
-
