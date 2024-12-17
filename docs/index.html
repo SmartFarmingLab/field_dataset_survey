@@ -206,27 +206,30 @@
       let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
       switching = true;
       dir = "asc";
-    
+
       document.querySelectorAll('.sort-icon').forEach(icon => {
         icon.innerHTML = "&#8597;";
       });
-    
+
       while (switching) {
         switching = false;
         rows = table.rows;
-    
+
         for (i = 1; i < (rows.length - 1); i++) {
           shouldSwitch = false;
           x = rows[i].getElementsByTagName("TD")[n];
           y = rows[i + 1].getElementsByTagName("TD")[n];
-    
-          if ((dir === "asc" && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) || 
-              (dir === "desc" && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())) {
+
+          const xContent = n === 8 ? parseInt(x.innerHTML.replace(/\D/g, '')) || 0 : x.innerHTML.toLowerCase();
+          const yContent = n === 8 ? parseInt(y.innerHTML.replace(/\D/g, '')) || 0 : y.innerHTML.toLowerCase();
+
+          if ((dir === "asc" && xContent > yContent) || 
+              (dir === "desc" && xContent < yContent)) {
             shouldSwitch = true;
             break;
           }
         }
-    
+
         if (shouldSwitch) {
           rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
           switching = true;
@@ -236,7 +239,7 @@
           switching = true;
         }
       }
-    
+
       const icon = header.querySelector('.sort-icon');
       icon.innerHTML = (dir === "asc") ? "&#8593;" : "&#8595;";
     }
