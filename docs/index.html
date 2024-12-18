@@ -12,15 +12,67 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><text x='50%' y='50%' font-size='128' text-anchor='middle' dy='.3em'>🌾</text></svg>">  <style>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><text x='50%' y='50%' font-size='128' text-anchor='middle' dy='.3em'>🌾</text></svg>">  
+  <style>
     .buttons {
       margin-top: 1rem;
     }
     .jump-to-table {
       margin-top: 1.5rem;
     }
+
+    /* Style for table headers */
+    th {
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      word-wrap: break-word;
+      white-space: normal;
+      vertical-align: bottom;
+      padding: 0.75rem;
+    }
+
+    th, td {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    th:hover {
+      background-color: #f5f5f5; /* Light gray on hover */
+      color: #3273dc; /* Bulma's primary color */
+    }
+  
+
+    /* Separate sort icon into its own line */
+    .sort-icon {
+        margin-left: 8px;
+        font-size: 12px;
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 14px;
+        color: #3273dc; /* Bulma's primary color */
+        cursor: pointer;
+    }
+
+    /* Add hover effect for better user interaction */
+    th:hover .sort-icon {
+        color: #0056b3; /* Darker shade for hover effect */
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        th {
+            font-size: 14px;
+        }
+        .sort-icon {
+            font-size: 12px;
+        }
+    }
   </style>
 </head>
+
+
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -118,33 +170,6 @@
   </section>
 
 
-  <style>
-    /* Style for table headers */
-    th {
-      cursor: pointer;
-      position: relative;
-      word-wrap: break-word;
-      white-space: normal;
-    }
-
-    th, td {
-        max-width: 200px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    th:hover {
-      background-color: #f5f5f5; /* Light gray on hover */
-      color: #3273dc; /* Bulma's primary color */
-    }
-  
-    /* Style for sort icons */
-    .sort-icon {
-      margin-left: 8px;
-      font-size: 12px;
-      display: inline-block;
-    }
-  </style>
   <!-- Dataset Table Section -->
   <section class="section">
     <div class="container">
@@ -153,17 +178,17 @@
         <table class="table is-striped is-hoverable is-fullwidth" id="datasetTable">
           <thead>
             <tr>
-              <th onclick="sortTable(0, this)">Label<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(1, this)">Year<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(2, this)">Author<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(3, this)">Plant (English)<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(4, this)">Plant (Latin)<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(5, this)">Plant/Leaf/Fruit<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(6, this)">Task<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(7, this)">Annotation<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(8, this)">Number of Images<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(9, this)">Paper URL<span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(10, this)">Dataset URL<span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(0, this)">Label<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(1, this)">Year<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(2, this)">Author<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(3, this)">Plant (English)<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(4, this)">Plant (Latin)<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(5, this)">Plant/Leaf/Fruit<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(6, this)">Task<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(7, this)">Annotation<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(8, this)">Number of Images<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(9, this)">Paper URL<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortTable(10, this)">Dataset URL<br><span class="sort-icon">↕</span></th>
             </tr>
           </thead>
           <tbody>
@@ -172,6 +197,7 @@
       </div>
     </div>
   </section>
+
 
 
   <!-- Citation Section -->
