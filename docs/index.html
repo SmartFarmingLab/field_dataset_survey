@@ -123,8 +123,16 @@
     th {
       cursor: pointer;
       position: relative;
+      word-wrap: break-word;
+      white-space: normal;
     }
-  
+
+    th, td {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     th:hover {
       background-color: #f5f5f5; /* Light gray on hover */
       color: #3273dc; /* Bulma's primary color */
