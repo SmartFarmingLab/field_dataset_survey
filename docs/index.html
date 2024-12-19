@@ -183,14 +183,14 @@
         <div class="content">
           <p>If you use this collection in your research, please cite our paper:</p>
           <pre><code>@article{heider2025survey,
-          title={A Survey of Datasets for Computer Vision in Agriculture: 
-          A catalogue of high-quality RGB image datasets of
-            natural field scenes},
-          author={Heider, Nico and Gunreben, Lorenz and Zürner, Sebastian 
-            and Schieck, Martin},
-          journal={tba},
-          year={2025}
-        }</code></pre>
+  title={A Survey of Datasets for Computer Vision in Agriculture: 
+  A catalogue of high-quality RGB image datasets of
+    natural field scenes},
+  author={Heider, Nico and Gunreben, Lorenz and Zürner, Sebastian 
+    and Schieck, Martin},
+  journal={tba},
+  year={2025}
+}</code></pre>
         </div>
       </div>
       <div class="column is-half">
@@ -217,17 +217,17 @@
         <table class="table is-striped is-hoverable is-fullwidth" id="datasetTable">
           <thead>
             <tr>
-              <th onclick="sortTable(0, this)">Label<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(1, this)">Year<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(2, this)">Author<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(3, this)">Plant (English)<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(4, this)">Plant (Latin)<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(5, this)">Plant Part<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(6, this)">Task<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(7, this)">Annotation<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(8, this)">Annotated Images<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(9, this)">Paper URL<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(10, this)">Dataset URL<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(0, this)">Label<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(1, this)">Year<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(2, this)">Author<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(3, this)">Plant (English)<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(4, this)">Plant (Latin)<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(5, this)">Plant Part<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(6, this)">Task<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(7, this)">Annotation<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(8, this)">Annotated Images<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(9, this)">Paper URL<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortDatasetTable(10, this)">Dataset URL<br><span class="sort-icon">↕</span></th>
             </tr>
           </thead>
           <tbody>
@@ -238,7 +238,7 @@
   </section>
 
 
-  <!-- Dataset Table Section -->
+  <!-- Survey Table Section -->
   <section class="section">
     <div class="container">
       <h2 class="title is-3 has-text-centered">Other Surveys</h2>
@@ -246,10 +246,10 @@
         <table class="table is-striped is-hoverable is-fullwidth" id="surveyTable">
           <thead>
             <tr>
-              <th onclick="sortTable(0, this)">Titel<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(1, this)">Year<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(2, this)">Author<br><span class="sort-icon">↕</span></th>
-              <th onclick="sortTable(9, this)">Paper URL<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortSurveyTable(0, this)">Title<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortSurveyTable(1, this)">Year<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortSurveyTable(2, this)">Author<br><span class="sort-icon">↕</span></th>
+              <th onclick="sortSurveyTable(3, this)">Paper URL<br><span class="sort-icon">↕</span></th>
             </tr>
           </thead>
           <tbody>
@@ -290,8 +290,8 @@
 
 
   <script>
-    // Function to load and parse CSV file
-    async function loadCSV() {
+    // Function to load and parse TSV file for datasets
+    async function loadTSV() {
       const response = await fetch("static/files/dataset_table.tsv");
       const csvText = await response.text();
     
@@ -325,18 +325,50 @@
       }
     }
     
-    // Call the CSV loading function on page load
-    document.addEventListener("DOMContentLoaded", loadCSV);
+    // Function to load and parse TSV file for surveys
+    async function loadSurveyTSV() {
+      const response = await fetch("static/files/survey_table.tsv");
+      const csvText = await response.text();
     
-    // Sorting function (remains the same as before)
-    function sortTable(n, header) {
+      const rows = csvText.trim().split("\n");
+      const tableBody = document.querySelector("#surveyTable tbody");
+    
+      for (let i = 1; i < rows.length; i++) { // Start from 1 to skip header
+        const cols = rows[i].split("\t");
+        const row = document.createElement("tr");
+        
+        cols.forEach((col, index) => {
+          const cell = document.createElement("td");
+          if (index === 3) { // Paper URL column
+              const a = document.createElement("a");
+              a.href = col.trim();
+              a.target = "_blank";
+              a.textContent = "Link";
+              cell.appendChild(a);
+          } else {
+              cell.textContent = col.trim();
+          }
+          row.appendChild(cell);
+        });
+        tableBody.appendChild(row);
+      }
+    }
+
+    // Call the CSV loading functions on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      loadTSV();
+      loadSurveyTSV();
+    });
+    
+    // Sorting function for dataset table
+    function sortDatasetTable(n, header) {
       const table = document.getElementById("datasetTable");
       let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
       switching = true;
       dir = "asc";
     
-      document.querySelectorAll('.sort-icon').forEach(icon => {
-        icon.innerHTML = "&#8597;";
+      document.querySelectorAll('#datasetTable .sort-icon').forEach(icon => {
+        icon.innerHTML = "↕";
       });
     
       while (switching) {
@@ -348,8 +380,8 @@
           x = rows[i].getElementsByTagName("TD")[n];
           y = rows[i + 1].getElementsByTagName("TD")[n];
     
-          const xContent = n === 8 ? parseInt(x.innerHTML.replace(/\D/g, '')) || 0 : x.innerHTML.toLowerCase();
-          const yContent = n === 8 ? parseInt(y.innerHTML.replace(/\D/g, '')) || 0 : y.innerHTML.toLowerCase();
+          const xContent = n === 8 ? parseInt(x.innerHTML.replace(/\D/g, '')) || 0 : x.textContent.toLowerCase();
+          const yContent = n === 8 ? parseInt(y.innerHTML.replace(/\D/g, '')) || 0 : y.textContent.toLowerCase();
     
           if ((dir === "asc" && xContent > yContent) || 
               (dir === "desc" && xContent < yContent)) {
@@ -367,11 +399,63 @@
           switching = true;
         }
       }
-    
+
       const icon = header.querySelector('.sort-icon');
-      icon.innerHTML = (dir === "asc") ? "&#8593;" : "&#8595;";
+      icon.innerHTML = (dir === "asc") ? "↑" : "↓";
     }
-    </script>
+
+    // Sorting function for survey table
+    function sortSurveyTable(n, header) {
+      const table = document.getElementById("surveyTable");
+      let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      switching = true;
+      dir = "asc";
+
+      document.querySelectorAll('#surveyTable .sort-icon').forEach(icon => {
+        icon.innerHTML = "↕";
+      });
+
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+
+          // For sorting, we treat all columns as text except year.
+          // If the year column is at index 1, we can parse it as an integer.
+          let xContent, yContent;
+          if (n === 1) {
+            xContent = parseInt(x.textContent) || 0;
+            yContent = parseInt(y.textContent) || 0;
+          } else {
+            xContent = x.textContent.toLowerCase();
+            yContent = y.textContent.toLowerCase();
+          }
+
+          if ((dir === "asc" && xContent > yContent) || 
+              (dir === "desc" && xContent < yContent)) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          switchcount++;
+        } else if (switchcount === 0 && dir === "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+
+      const icon = header.querySelector('.sort-icon');
+      icon.innerHTML = (dir === "asc") ? "↑" : "↓";
+    }
+  </script>
     
 </body>
 </html>
