@@ -8,6 +8,10 @@
 
 This repository contains a curated list of high-quality RGB image datasets for computer vision in agriculture, specifically focused on natural field scenes. The datasets were collected as part of our research paper "A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes" (Heider et al., 2025).
 
+Project Page:
+
+https://smartfarminglab.github.io/field_dataset_survey/
+
 
 
 ## Citation
