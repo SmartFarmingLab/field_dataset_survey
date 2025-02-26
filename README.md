@@ -22,10 +22,11 @@ If you use this collection in your research, please cite our paper:
 @article{heider2025survey,
   title={A Survey of Datasets for Computer Vision in Agriculture: A catalogue of high-quality RGB image datasets of natural field scenes},
   author={Heider, Nico and Gunreben, Lorenz and Z{\"u}rner, Sebastian and Schieck, Martin},
-  journal={t.b.d.},
-  publisher={t.b.d.},
-  address={t.b.d.},
-  year={2025}
+  booktitle={45. GIL-Jahrestagung, Digitale Infrastrukturen für eine nachhaltige Land-, Forst und
+Ernährungswirtschaft},
+  pages={35--47},
+  year={2025},
+  organization={Gesellschaft f{\"u}r Informatik eV}
 }
 ```
 
